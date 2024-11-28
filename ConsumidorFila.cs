@@ -31,7 +31,7 @@ namespace Livedio
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Iniciando a leitura da fila no Azure Service Bus...");
+            _logger.LogInformation("Iniciando a leitura da fila no Azure Service Bus");
 
             // Configure os handlers de mensagens e erros
             _processor.ProcessMessageAsync += ProcessarMensagem;
@@ -43,7 +43,7 @@ namespace Livedio
 
         public override async Task StopAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Finalizando conexão com o Azure Service Bus...");
+            _logger.LogInformation("Finalizando conexão com o Azure Service Bus");
             await _processor.StopProcessingAsync(stoppingToken);
             await _client.DisposeAsync();
             _logger.LogInformation("Conexão finalizada.");
